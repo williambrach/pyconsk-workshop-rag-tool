@@ -11,25 +11,43 @@ from llama_index.llms.openai import OpenAI
 from llama_index.readers.web import SimpleWebPageReader
 from pydantic import BaseModel
 
-wikipedia.set_lang("cs")
+wikipedia.set_lang("en")
 
 system_prompt = "You are amazing trip planner."
 
 llm_4_turbo = OpenAI(model="gpt-4-turbo-preview", temperature=0, system_prompt=system_prompt, timeout=120)
 
+
 cities = {
-    "Brno": {
+    "Paris" : {
         "wiki_pages": [
-            "Brno",
-            "Pivovar Starobrno"
+            "Paris",
+            "Eiffel Tower",
+            "Notre-Dame de Paris",
+            "Sacré-Cœur, Paris",
+            "Panthéon",
+            "Arc de Triomphe"
         ],
         "web_pages": [
-            "https://mendelmuseum.muni.cz/o-muzeu/mendelovo-muzeum",
-            "https://www.tmbrno.cz/vystavy-a-akce/vystavy/",
-            "https://www.alkoholium.cz/nejlepsi-bary-v-brne/",
+            "https://www.french-waterways.com/20-iconic-french-menu-dishes/",
+            "https://www.bbcgoodfood.com/travel/europe/top-10-foods-try-paris"
         ]
-    },
+    }
 }
+
+# cities = {
+#     "Brno": {
+#         "wiki_pages": [
+#             "Brno",
+#             "Pivovar Starobrno"
+#         ],
+#         "web_pages": [
+#             "https://mendelmuseum.muni.cz/o-muzeu/mendelovo-muzeum",
+#             "https://www.tmbrno.cz/vystavy-a-akce/vystavy/",
+#             "https://www.alkoholium.cz/nejlepsi-bary-v-brne/",
+#         ]
+#     },
+# }
 
 group_types = [
             "Family with Kids",
